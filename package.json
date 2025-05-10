@@ -31,7 +31,7 @@
     "@aws-crypto/util": "^5.2.0",
     "@cdklabs/generative-ai-cdk-constructs": "^0.1.293",
     "@cloudscape-design/components": "^3.0.899",
-    "aws-cdk-lib": "2.194.0",
+    "aws-cdk-lib": "2.189.1",
     "cdk-nag": "^2.35.30",
     "get-nonce": "^1.0.1"
   },
