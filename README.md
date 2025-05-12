@@ -279,6 +279,17 @@ npm run -w infra deploy-website
 ***(If you change any of the models on the agents, make sure to update the Alias to a new version afterwards. Do not create any new aliases for the agents.)***
 
 
+## Responsible AI and Monitoring
+
+This project includes comprehensive logging and monitoring for Amazon Bedrock model invocations to ensure adherence to responsible AI practices:
+
+- **CloudWatch Logging**: All Bedrock model invocations are logged to a dedicated CloudWatch log group (`/aws/bedrock/model-invocations`) with detailed information about inputs, outputs, and metadata.
+- **Error Monitoring**: CloudWatch alarms trigger when error thresholds are exceeded, providing immediate notification of potential issues.
+- **Usage Dashboard**: A CloudWatch dashboard visualizes Bedrock usage patterns and error rates.
+- **Audit Trail**: Complete logs of all model interactions support compliance requirements and responsible AI governance.
+
+These monitoring capabilities help ensure transparency, detect potential misuse, and maintain compliance with responsible AI policies.
+
 ## Cleanup
 After completing the setup and testing of the Bedrock Agent, follow these steps to clean up your AWS environment and avoid unnecessary charges:
 

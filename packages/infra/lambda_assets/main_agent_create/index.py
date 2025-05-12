@@ -886,7 +886,7 @@ def store_in_parameter_store(key_name, agent_id, agent_alias_id, max_retries=8):
             ssm_client.put_parameter(
                 Name="supervisorids",
                 Value=parameter_value,
-                Type="String",
+                Type="SecureString",
                 Overwrite=True
             )
             print(f"Parameter '{key_name}' successfully stored in Systems Manager.")
@@ -918,7 +918,7 @@ def get_from_parameter_store(key_name, max_retries=8):
                 print(f"Retry {retry_count}/{max_retries} for retrieving parameter, waiting {wait_time:.2f} seconds...")
                 time.sleep(wait_time)
                 
-            response = ssm_client.get_parameter(Name=key_name, WithDecryption=False)
+            response = ssm_client.get_parameter(Name=key_name, WithDecryption=True)
             parameter_value = response['Parameter']['Value']
             return parameter_value
             

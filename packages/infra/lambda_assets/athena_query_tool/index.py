@@ -10,7 +10,7 @@ def get_s3_bucket_from_ssm():
         try:
             response = ssm_client.get_parameter(
                 Name='/athena/query-results-location',
-                WithDecryption=False
+                WithDecryption=True
             )
             print("Found parameter at /athena/query-results-location")
             return response['Parameter']['Value']
@@ -19,7 +19,7 @@ def get_s3_bucket_from_ssm():
             try:
                 response = ssm_client.get_parameter(
                     Name='/athena-bucket',
-                    WithDecryption=False
+                    WithDecryption=True
                 )
                 print("Found parameter at /athena-bucket")
                 return response['Parameter']['Value']
@@ -42,7 +42,7 @@ def get_s3_bucket_from_ssm():
                     print(f"Found alternate parameter: {param_name}")
                     response = ssm_client.get_parameter(
                         Name=param_name,
-                        WithDecryption=False
+                        WithDecryption=True
                     )
                     return response['Parameter']['Value']
                 else:
@@ -72,7 +72,7 @@ def get_s3_bucket_from_ssm():
             ssm_client.put_parameter(
                 Name='/athena/query-results-location',
                 Value=output_location,
-                Type='String',
+                Type='SecureString',
                 Overwrite=True
             )
             print(f"Created new parameter /athena/query-results-location with value {output_location}")

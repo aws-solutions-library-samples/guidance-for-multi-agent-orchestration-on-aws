@@ -45,6 +45,8 @@ export class AthenaStack extends cdk.NestedStack {
       parameterName: paramName,
       stringValue: this.athenaQueryResultsLocation,
       description: 'Location for storing Athena query results',
+      type: ssm.ParameterType.SECURE_STRING,
+      tier: ssm.ParameterTier.STANDARD
     });
     
     // Store the parameter name for reference

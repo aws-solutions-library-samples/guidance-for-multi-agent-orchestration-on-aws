@@ -13,7 +13,7 @@ def wait_for_ssm_parameter(parameter_name, max_attempts=10):
     """Wait for SSM parameter to be available"""
     for i in range(max_attempts):
         try:
-            ssm_client.get_parameter(Name=parameter_name)
+            ssm_client.get_parameter(Name=parameter_name, WithDecryption=True)
             print(f"SSM parameter {parameter_name} is available")
             return True
         except ssm_client.exceptions.ParameterNotFound:
@@ -84,7 +84,7 @@ def lambda_handler(event, context):
                 try:
                     # Try to get from SSM as fallback
                     ssm_client = boto3.client('ssm')
-                    ssm_response = ssm_client.get_parameter(Name=parameter_name)
+                    ssm_response = ssm_client.get_parameter(Name=parameter_name, WithDecryption=True)
                     output_location = ssm_response['Parameter']['Value']
                     print(f"Got output location from SSM parameter '{parameter_name}': {output_location}")
                 except Exception as e:

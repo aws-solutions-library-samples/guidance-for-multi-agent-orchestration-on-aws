@@ -4,6 +4,7 @@ import { storeAgentIds, storeWebsocketId } from '../lib/utils/ssm-utils';
 import { agPolicy } from '../lib/policies/ag-policy';
 import { bedrockAgentInferenceProfilePolicy } from '../lib/policies/inference-profile-policy';
 import { invokeAgent } from '../lib/policies/invoke-agent';
+import { bedrockLoggingPolicy } from '../lib/policies/iam-policy-statements';
 import { DynamicLambdaLayer } from '../lib/custom-lambda-layer';
 import { createS3DataSource, createActionGroupExecutor, createAgent } from '../lib/compatibility';
 
@@ -1269,6 +1270,9 @@ export class BedrockAgentStack extends cdk.Stack {
     });
     this.connectionsTable.grantReadWriteData(this.wsInvokeAgentFn);
     this.wsInvokeAgentFn.addToRolePolicy(invokeAgent(this));
+    
+    // Add permissions for Bedrock logging to CloudWatch
+    this.wsInvokeAgentFn.addToRolePolicy(bedrockLoggingPolicy(this));
 
     this.wsConnectFn = new lambda_python.PythonFunction(this, 'WsConnectFunction', {
       runtime: lambda.Runtime.PYTHON_3_12,
@@ -1483,6 +1487,45 @@ export class BedrockAgentStack extends cdk.Stack {
       value: troubleshootBucket.bucketName,
       description: 'S3 bucket storing docs for Troubleshoot knowledge base'
     });
+
+    // Create CloudWatch Log Group for Bedrock invocations
+    const bedrockLogGroup = new cdk.aws_logs.LogGroup(this, 'BedrockInvocationLogs', {
+      logGroupName: '/aws/bedrock/model-invocations',
+      retention: cdk.aws_logs.RetentionDays.ONE_MONTH,
+      removalPolicy: cdk.RemovalPolicy.DESTROY
+    });
+    
+    // Create CloudWatch Alarms for Bedrock invocation errors
+    const bedrockErrorMetric = new cdk.aws_cloudwatch.Metric({
+      namespace: 'AWS/Logs',
+      metricName: 'ErrorCount',
+      dimensionsMap: {
+        LogGroupName: '/aws/bedrock/model-invocations'
+      },
+      statistic: 'Sum',
+      period: cdk.Duration.minutes(5)
+    });
+
+    const bedrockErrorAlarm = new cdk.aws_cloudwatch.Alarm(this, 'BedrockErrorAlarm', {
+      metric: bedrockErrorMetric,
+      threshold: 5,
+      evaluationPeriods: 1,
+      alarmDescription: 'Alarm when Bedrock invocations have errors',
+      comparisonOperator: cdk.aws_cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+      treatMissingData: cdk.aws_cloudwatch.TreatMissingData.NOT_BREACHING
+    });
+    
+    // Create a CloudWatch Dashboard for Bedrock monitoring
+    const dashboard = new cdk.aws_cloudwatch.Dashboard(this, 'BedrockMonitoringDashboard', {
+      dashboardName: 'BedrockModelInvocations'
+    });
+    
+    dashboard.addWidgets(
+      new cdk.aws_cloudwatch.GraphWidget({
+        title: 'Bedrock Invocation Errors',
+        left: [bedrockErrorMetric]
+      })
+    );
 
     // Add comprehensive CDK Nag suppressions
     this.addCdkNagSuppressions();
