@@ -86,7 +86,6 @@ The runtime chatbot is a React-based website that uses a WebSocket API and a Lam
 This demo scope showcases the multi-agent system’s ability to deliver an efficient, personalized, and user-friendly customer support experience. The setup leverages Bedrock's orchestration and data-handling capabilities to deliver comprehensive and real-time support solutions.
 
 
-
 ## Getting started
 Let's start by enabling the models we need for the application. Navigate to the Amazon Bedrock console, and enable the following models:
 
