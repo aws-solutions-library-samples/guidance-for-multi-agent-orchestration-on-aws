@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TraceGroup SubTask Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      color: #333;
+    }
+    .info {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    code {
+      background-color: #f7f7f7;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .feature-list li {
+      margin-bottom: 8px;
+    }
+    .preview-image {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TraceGroup Subtask Updates</h1>
+    <div class="info">
+      <p><strong>Note:</strong> This is a documentation page for the TraceGroup component enhancements.</p>
+      <p>To see the working demo, you'll need to navigate to a page that integrates the TraceGroup component with real trace data.</p>
+    </div>
+    
+    <h2>New Features</h2>
+    <ul class="feature-list">
+      <li><strong>Grouped subtasks:</strong> Action Group Input and Output are paired together</li>
+      <li><strong>Knowledge Base integration:</strong> Knowledge Base Query and Results are paired together</li>
+      <li><strong>Independent expansion:</strong> Each subtask can be expanded independently</li>
+      <li><strong>Visual indicators:</strong> Input and output subtasks have distinctive icons</li>
+      <li><strong>Consistent styling:</strong> Subtasks maintain consistent styling with parent tasks</li>
+    </ul>
+    
+    <h2>Implementation Details</h2>
+    <p>The enhanced TraceGroup component now:</p>
+    <ol>
+      <li>Detects Action Group and Knowledge Base tools in trace data</li>
+      <li>Groups Input and Output subtasks together for better readability</li>
+      <li>Maintains a state tracker for expanded/collapsed subtasks</li>
+      <li>Renders visual indicators for inputs/outputs</li>
+      <li>Properly formats specialized content like JSON data and Knowledge Base responses</li>
+    </ol>
+    
+    <h2>Code Structure</h2>
+    <p>The implementation includes:</p>
+    <ul>
+      <li><code>TraceGroup.tsx</code> - The main component with subtask grouping</li>
+      <li><code>traceParser.ts</code> - Updated to properly detect and classify subtasks</li>
+      <li><code>FlowComponents.css</code> - Enhanced styling for subtask pairs</li>
+    </ul>
+    
+    <p>To view this implementation in action, use the application's chat interface and observe traces from Action Group and Knowledge Base operations.</p>
+  </div>
+</body>
+</html>

@@ -1,2 +1,0 @@
-packages/infra/lambda_assets/athena_query_tool/index.py
-# nosemgrep useless-inner-function

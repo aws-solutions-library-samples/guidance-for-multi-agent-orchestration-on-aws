@@ -58,6 +58,28 @@ The runtime chatbot is a React-based website that uses a WebSocket API and a Lam
 ## Architecture Design
 ![Diagram](images/genai-mac-arch-diagram.png)
 
+1. The user accesses the web application through AWS WAF and Amazon CloudFront, which delivers content from the Amazon S3 Website bucket, while Amazon Cognito handles authentication.
+
+2. After authentication, user requests are sent to Amazon API Gateway, which serves as the entry point for all interactions. API Gateway validates the request and routes it to the appropriate AWS Lambda function for processing, maintaining a secure and scalable communication channel. Amazon DynamoDB is used to store session data. 
+
+3. The AWS Lambda function processes the incoming request and communicates with the Amazon Bedrock Supervisor Agent (Main). 
+
+4. The Amazon Bedrock Supervisor Agent (Main) analyzes the user query to determine intent and routes it to the appropriate sub agent. This central orchestrator maintains context across the conversation and ensures requests are handled by the most suitable sub agent.
+
+4a. For order-related queries, the Order Management Agent retrieves data from the order management database in Amazon Athena, accessing orders and inventory tables through its Action Groups that execute SQL queries and format structured responses about order status, shipping details, and inventory availability.
+
+4b. When product recommendations are needed, this specialized agent accesses the product recommendation database in Athena while its Knowledge Base provides unstructured customer feedback data, with Action Groups performing recommendation algorithms and formatting product suggestions with relevant details.
+
+4c. For technical issues, the Troubleshooting Agent accesses its Knowledge Base containing FAQs and Troubleshooting Guide document collections, using vector search capabilities to match customer issues with relevant troubleshooting content and retrieve step-by-step solutions without requiring Action Groups.
+
+4d. For personalization needs, the Personalization Agent accesses the personalization database in Athena, querying the customers preferences table through Action Groups that execute tailored SQL queries, perform preference analysis, and format responses. Its Knowledge Base contains browser history data that reveals actual customer behavior patterns, complementing the structured data to create a comprehensive view of individual customer profiles and past interactions.
+
+5. Sub agents construct and execute SQL queries against Amazon Athena which uses the AWS Glue Data Catalog to understand the schema and location of data, then queries the data directly in Amazon S3 without requiring data movement or transformation.
+
+
+6. After gathering necessary information from databases and knowledge bases, the sub agents generates a comprehensive response, which is then sent back through the Supervisor Agent to the Lambda function, API Gateway, and finally to the user's web interface.
+
+
 
 ## Demo Scope
 
@@ -84,7 +106,6 @@ The runtime chatbot is a React-based website that uses a WebSocket API and a Lam
 
 
 This demo scope showcases the multi-agent system’s ability to deliver an efficient, personalized, and user-friendly customer support experience. The setup leverages Bedrock's orchestration and data-handling capabilities to deliver comprehensive and real-time support solutions.
-
 
 
 ## Getting started
@@ -129,18 +150,6 @@ Navigate to the Amazon Bedrock console, and enable the following models:
 
 ## Pre-Requisites
 
-### Volta
-
-We use `volta` to manage `nodejs` installation & version management. Get `volta` from [here](https://docs.volta.sh/guide/understanding).
-
-```bash
-volta install node@22.6.0
-
-# check node version 
-node --version 
-v22.6.0
-```
-
 
 ### Run Docker
 
@@ -180,10 +189,10 @@ cd /project-root/
 gh repo clone awslabs/genai-labs-mac-demo-customer-support
 ```
 
-We are all set to install dependencies by using the following command. This will install `npm` dependencies from our internal AWS CodeArtifact repository and will take at-least 2-5 mins to complete for first time. Great time for a ☕
+We are all set to install dependencies by using the following command. This will install `npm` dependencies required to run the app. Then, we will boostratp the account.
 
 ```bash
-npm run install:all
+npm i
 ```
 
 ### Bootstrapping account
@@ -194,48 +203,23 @@ cdk bootstrap aws://{ACCOUNT_ID}/{REGION}
 
 ### Setup website
 
-Next up we will setup the website to run locally to make changes, then deploy the app to Cloudfront. This requires to generate the `.env` file locally which has all backend infra ARNs and several key resource identifiers. This can be easily done via a script
+Next, we will use the starter kit to deploy our app. This includes ready-to-deploy, compliant and secure CDK and React app components with Cognito integration. It also includes customizable CLI tooling for easier demo configuration and management. While we offer this set of components and tools, you retain the freedom to customize any and all aspects of the starter kit to fit your use case (even if it has nothing to do with GenAI).
 
-Make sure to navigate to the packages/infra/config/***AppConfig.ts*** file and update the **projectName**, and **currentAccount**.
+Make sure to navigate to the config/***project-config.json*** file and update the **number** property to your current account, then save it.
 
-```bash
-# from project root
-cd /project-root/ 
 
-# manually deploy infra via cdk 
-npm run -w infra deploy-infra
-
-# build the web-app
-npm run -w infra build-webapp
-```
-
-If you get the following error on deployment:
-`Unable to find image 'public.ecr.aws/sam/build-python3.12:latest' locally`
-
-Run these commands:
+Next, run this command:
 
 ```bash
-docker logout public.ecr.aws
-
-npm run -w infra deploy-infra
-
-npm run -w infra build-webapp
+Deploy CDK Stack(s)
 ```
+You will see a screen with options. Select ***1. Synthesize CDK Stacks 🗂️***.
+After it succefully deploys, deploy the frontend by selecting ***4. Deploy Frontend 🖥️***.
+
+![starkit-screen](images/startkit-mainscreen.png)
 
 
-- Before we run the app, we need to manually set the Amazon Athena output bucket (This will be automated on the next revision). In the AWS console, search for the Amazon Athena service, then navigate to the Athena management console. Validate that the ***Query your data with Trino SQL*** radio button is selected, then press ***Launch query editor***.
-![athena1](images/athena1.png)
-
-
-- Next, set the ***query result location*** with Amazon S3. Select the ***Settings*** tab, then the ***Manage*** button in the ***Query result location and encryption*** section.
-![athena2](images/athena2.png)
-
-
-- Add the S3 prefix below for the query results location, then select the ***Save*** button.
-```bash
-s3://genai-athena-output-bucket-{account_number}
-```
-![athena3](images/athena3.png)
+- Now, lets navigate over to the Amazon Cognito management console
 
 
 - The last thing we need to do before we can access the application is to add in a user in Amazon Cognito. Navigate to the Amazon Cognito management console. Once there, select **User pools** on the left.
@@ -254,27 +238,8 @@ s3://genai-athena-output-bucket-{account_number}
 ![cognito4](images/cognito4.png)
 
 
-### Run webapp locally
 
-The local site is configured to run on port `3000`. So, ensure there are no other apps running on that port.
-
-Run the following commands:
-
-```bash
-cd /project-root/ 
-#locally run webapp
-npm run -w webapp dev
-```
-
-Now, visit <http://localhost:3000> on a browser of choice (Chrome/Firefox are recommended)
-
----
-
-### Deploy webapp to Amazon Cloudfront
-```bash
-### Deploy webapp to Amazon Cloudfront
-npm run -w infra deploy-website
-```
+Navigate to the Amazon Cloudfront endpoint created from the deployment. Enter in your credential, then test the application.
 
 ***(If you change any of the models on the agents, make sure to update the Alias to a new version afterwards. Do not create any new aliases for the agents.)***
 
