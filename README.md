@@ -214,7 +214,7 @@ Next, run this command:
 Deploy CDK Stack(s)
 ```
 You will see a screen with options. Select ***1. Synthesize CDK Stacks 🗂️***.
-After it succefully deploys, deploy the frontend by selecting ***4. Deploy Frontend 🖥️ ***.
+After it succefully deploys, deploy the frontend by selecting ***4. Deploy Frontend 🖥️***.
 
 ![starkit-screen](images/startkit-mainscreen.png)
 
