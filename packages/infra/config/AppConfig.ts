@@ -18,7 +18,7 @@ export const projectName = 'mac-demo';
  * Get AWS account info from environment variables
  * If not available, use empty string to force explicit configuration
  */
-const currentAccount = '504639759223';// Default to us-west-2 if region not specified
+const currentAccount = '{ACCOUNT_NUMBER}';// Default to us-west-2 if region not specified
 const currentRegion = process.env.CDK_DEFAULT_REGION || 'us-west-2';
 
 /**

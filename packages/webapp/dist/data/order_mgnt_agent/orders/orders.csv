@@ -1,0 +1,41 @@
+﻿order_id,customer_id,product_id,product_name,order_status,shipping_status,return_exchange_status,order_date,delivery_date
+o001,cust001,prod001,zensound wireless headphones,delivered,delivered,not returned,10/25/24 10:00,10/30/24 12:00
+o002,cust002,prod002,vitafit smartwatch,shipped,in transit,not returned,10/28/24 14:00,11/3/24 16:00
+o003,cust003,prod003,promax laptop,delivered,delivered,returned,10/20/24 9:30,10/25/24 18:00
+o004,cust004,prod004,sonicwave bluetooth speaker,processing,not shipped,not returned,11/1/24 15:45,n/a
+o005,cust001,prod005,nova 5g smartphone,cancelled,n/a,not returned,11/2/24 11:20,n/a
+o006,cust003,prod002,vitafit smartwatch,delivered,delivered,not returned,10/17/24 13:45,10/22/24 11:30
+o007,cust004,prod001,zensound wireless headphones,shipped,in transit,not returned,10/12/24 9:15,10/18/24 14:50
+o008,cust005,prod003,promax laptop,delivered,delivered,returned,9/15/24 10:20,9/20/24 17:25
+o009,cust002,prod004,sonicwave bluetooth speaker,processing,not shipped,not returned,10/23/24 16:40,n/a
+o010,cust001,prod002,vitafit smartwatch,delivered,delivered,not returned,10/7/24 8:30,10/11/24 13:20
+o011,cust003,prod005,nova 5g smartphone,shipped,in transit,not returned,11/3/24 14:10,11/7/24 16:55
+o012,cust004,prod005,nova 5g smartphone,delivered,delivered,not returned,10/1/24 12:05,10/6/24 15:10
+o013,cust005,prod001,zensound wireless headphones,processing,not shipped,not returned,10/20/24 18:00,n/a
+o014,cust001,prod003,promax laptop,delivered,delivered,returned,9/25/24 9:10,10/1/24 15:30
+o015,cust002,prod003,promax laptop,delivered,delivered,not returned,9/18/24 12:45,9/23/24 19:50
+o016,cust003,prod004,sonicwave bluetooth speaker,shipped,in transit,not returned,9/15/24 14:55,9/21/24 10:40
+o017,cust004,prod002,vitafit smartwatch,delivered,delivered,returned,8/20/24 13:30,8/25/24 11:00
+o018,cust005,prod005,nova 5g smartphone,processing,not shipped,not returned,10/14/24 11:50,n/a
+o019,cust001,prod004,sonicwave bluetooth speaker,delivered,delivered,not returned,10/1/24 10:10,10/6/24 12:45
+o020,cust002,prod001,zensound wireless headphones,cancelled,n/a,not returned,10/9/24 16:00,n/a
+o021,cust006,prod006,soundsphere pro headphones,delivered,delivered,not returned,10/29/24 11:10,11/2/24 14:30
+o022,cust007,prod007,trackmaster smartwatch,shipped,in transit,not returned,10/27/24 13:40,11/1/24 16:10
+o023,cust008,prod008,thunderbolt speaker,processing,not shipped,not returned,11/5/24 9:20,n/a
+o024,cust009,prod009,ultrabook pro laptop,delivered,delivered,returned,10/15/24 15:30,10/22/24 17:20
+o025,cust010,prod010,gigabook gaming laptop,cancelled,n/a,not returned,10/25/24 12:50,n/a
+o026,cust011,prod011,flexTab convertible laptop,delivered,delivered,not returned,10/10/24 8:00,10/15/24 14:45
+o027,cust012,prod012,alpha one 5g,shipped,in transit,not returned,11/2/24 10:30,11/7/24 16:25
+o028,cust013,prod013,eclipse x smartphone,delivered,delivered,not returned,9/30/24 9:15,10/5/24 15:35
+o029,cust014,prod014,infinity ultra 5g,processing,not shipped,not returned,10/31/24 11:45,n/a
+o030,cust015,prod001,zensound wireless headphones,delivered,delivered,not returned,10/18/24 13:00,10/23/24 18:20
+o031,cust016,prod002,vitafit smartwatch,shipped,in transit,not returned,11/3/24 12:40,11/8/24 17:15
+o032,cust006,prod004,sonicwave bluetooth speaker,delivered,delivered,returned,10/8/24 10:25,10/12/24 16:45
+o033,cust007,prod005,nova 5g smartphone,delivered,delivered,not returned,10/3/24 15:15,10/9/24 13:35
+o034,cust008,prod006,soundsphere pro headphones,processing,not shipped,not returned,10/27/24 8:20,n/a
+o035,cust009,prod007,trackmaster smartwatch,shipped,in transit,not returned,11/1/24 14:00,11/6/24 18:25
+o036,cust010,prod008,thunderbolt speaker,delivered,delivered,not returned,10/11/24 9:50,10/16/24 14:10
+o037,cust011,prod009,ultrabook pro laptop,processing,not shipped,not returned,10/29/24 15:35,n/a
+o038,cust012,prod010,gigabook gaming laptop,shipped,in transit,not returned,10/20/24 10:55,10/25/24 15:45
+o039,cust013,prod011,flexTab convertible laptop,delivered,delivered,returned,9/10/24 11:10,9/15/24 16:20
+o040,cust014,prod012,alpha one 5g,delivered,delivered,not returned,10/15/24 12:00,10/20/24 14:30

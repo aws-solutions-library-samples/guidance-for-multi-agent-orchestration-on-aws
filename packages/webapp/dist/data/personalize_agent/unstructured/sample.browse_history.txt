@@ -1,0 +1,216 @@
+Customer ID: CUST001
+
+- Date: 2024-11-12, Session Start: 13:25  
+  - Product Browsed: ProMax Laptop (prod003)  
+  - Category: Computers  
+  - Time Spent: 25 minutes  
+  - Actions: Compared RAM and storage options; downloaded PDF spec sheet on processor compatibility  
+  - Total Clicks: 12  
+  - Likes on Product Ads: Yes  
+
+- Date: 2024-11-13, Session Start: 18:15  
+  - Product Browsed: ZenSound Wireless Headphones (prod001), SonicWave Bluetooth Speaker (prod004)  
+  - Category: Electronics  
+  - Time Spent: 20 minutes  
+  - Actions: Compared sound quality reviews; checked FAQ for warranty options  
+  - Total Clicks: 9  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST002
+
+- Date: 2024-11-12, Session Start: 09:30  
+  - Product Browsed: VitaFit Smartwatch (prod002)  
+  - Category: Watch  
+  - Time Spent: 10 minutes  
+  - Actions: Checked fitness tracking accuracy FAQ; compared with Nova 5G Smartphone (prod005)  
+  - Total Clicks: 7  
+  - Likes on Product Ads: No  
+
+- Date: 2024-11-14, Session Start: 08:00  
+  - Product Browsed: VitaFit Smartwatch (prod002)  
+  - Category: Watch  
+  - Actions: Reviewed app compatibility with fitness tracking apps  
+  - Total Clicks: 5  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST003
+
+- Date: 2024-11-11, Session Start: 15:05  
+  - Product Browsed: SonicWave Bluetooth Speaker (prod004)  
+  - Category: Speaker  
+  - Time Spent: 15 minutes  
+  - Actions: Compared with VitaFit Smartwatch (prod002) for sound capabilities  
+  - Total Clicks: 10  
+  - Likes on Product Ads: No  
+
+- Date: 2024-11-13, Session Start: 14:30  
+  - Product Browsed: SonicWave Bluetooth Speaker (prod004)  
+  - Category: Speaker  
+  - Actions: Accessed troubleshooting guide for Bluetooth pairing  
+  - Total Clicks: 11  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST004
+
+- Date: 2024-11-12, Session Start: 10:55  
+  - Product Browsed: VitaFit Smartwatch (prod002)  
+  - Category: Watch  
+  - Time Spent: 15 minutes  
+  - Actions: Focused on fitness tracking and app compatibility; added to wishlist  
+  - Total Clicks: 8  
+  - Likes on Product Ads: Yes  
+
+- Date: 2024-11-14, Session Start: 16:50  
+  - Product Browsed: ZenSound Wireless Headphones (prod001), SonicWave Bluetooth Speaker (prod004)  
+  - Category: Electronics  
+  - Actions: Accessed user manuals; read forum on connectivity issues  
+  - Total Clicks: 7  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST005
+
+- Date: 2024-11-10, Session Start: 11:20  
+  - Product Browsed: Nova 5G Smartphone (prod005)  
+  - Category: Mobile Phones  
+  - Time Spent: 18 minutes  
+  - Actions: Compared camera quality with existing device; checked battery replacement options  
+  - Total Clicks: 6  
+  - Likes on Product Ads: Yes  
+
+- Date: 2024-11-14, Session Start: 20:10  
+  - Product Browsed: Nova 5G Smartphone (prod005)  
+  - Category: Mobile Phones  
+  - Actions: Accessed FAQ on camera modes; read feedback on battery performance  
+  - Total Clicks: 5  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST006
+
+- Date: 2024-11-12, Session Start: 14:45  
+  - Product Browsed: SoundSphere Pro Headphones (prod006)  
+  - Category: Headphones  
+  - Actions: Focused on noise-canceling features; compared with ZenSound Wireless Headphones (prod001)  
+  - Total Clicks: 9  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST007
+
+- Date: 2024-11-10, Session Start: 16:10  
+  - Product Browsed: TrackMaster Smartwatch (prod007)  
+  - Category: Watch  
+  - Actions: Looked up GPS accuracy and durability; reviewed warranty options  
+  - Total Clicks: 7  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST008
+
+- Date: 2024-11-13, Session Start: 12:20  
+  - Product Browsed: ThunderBolt Speaker (prod008)  
+  - Category: Speaker  
+  - Actions: Reviewed compactness and waterproof capability for outdoor events  
+  - Total Clicks: 8  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST009
+
+- Date: 2024-11-12, Session Start: 11:30  
+  - Product Browsed: UltraBook Pro Laptop (prod009)  
+  - Category: Computers  
+  - Actions: Compared specs with HP brand; added to wishlist for future reference  
+  - Total Clicks: 10  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST010
+
+- Date: 2024-11-14, Session Start: 09:10  
+  - Product Browsed: Infinity Ultra 5G (prod014)  
+  - Category: Mobile Phones  
+  - Actions: Focused on battery life and screen size; liked ad for 5G capabilities  
+  - Total Clicks: 6  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST011
+
+- Date: 2024-11-11, Session Start: 15:00  
+  - Product Browsed: FlexTab Convertible Laptop (prod011)  
+  - Category: Computers  
+  - Actions: Checked 2-in-1 feature; viewed customer reviews on hinge durability  
+  - Total Clicks: 9  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST012
+
+- Date: 2024-11-13, Session Start: 14:30  
+  - Product Browsed: VitaFit Smartwatch (prod002)  
+  - Category: Watch  
+  - Actions: Researched heart rate monitoring accuracy and app integration; liked the product ad  
+  - Total Clicks: 8  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST013
+
+- Date: 2024-11-12, Session Start: 11:50  
+  - Product Browsed: ZenSound Wireless Headphones (prod001)  
+  - Category: Headphones  
+  - Actions: Read user reviews on sound quality; compared with Beats headphones  
+  - Total Clicks: 7  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST014
+
+- Date: 2024-11-14, Session Start: 17:40  
+  - Product Browsed: ProMax Laptop (prod003)  
+  - Category: Computers  
+  - Actions: Focused on processor speed; saved spec sheet for future reference  
+  - Total Clicks: 10  
+  - Likes on Product Ads: Yes  
+
+---
+
+Customer ID: CUST015
+
+- Date: 2024-11-13, Session Start: 10:25  
+  - Product Browsed: Nova 5G Smartphone (prod005)  
+  - Category: Mobile Phones  
+  - Actions: Researched gaming performance and battery life; read about Samsung smartphone comparison  
+  - Total Clicks: 6  
+  - Likes on Product Ads: No  
+
+---
+
+Customer ID: CUST016
+
+- Date: 2024-11-12, Session Start: 18:45  
+  - Product Browsed: ThunderBolt Speaker (prod008)  
+  - Category: Speaker  
+  - Actions: Read reviews on battery durability; compared with Ultimate Ears speaker options  
+  - Total Clicks: 5  
+  - Likes on Product Ads: Yes  
+
+---

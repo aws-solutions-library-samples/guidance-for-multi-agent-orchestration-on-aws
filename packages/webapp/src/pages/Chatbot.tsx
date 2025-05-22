@@ -295,7 +295,7 @@ const Chatbot: FC = () => {
   function getModelLabelForTrace(traceType: string): string {
     switch (traceType) {
       case 'SupervisorAgent':
-        return 'Sonnet 3.5 V2';
+        return 'Sonnet Nova';
       case 'ProductRecommendationAgent':
         return 'Sonnet 3 V1';
       case 'TroubleshootAgent':

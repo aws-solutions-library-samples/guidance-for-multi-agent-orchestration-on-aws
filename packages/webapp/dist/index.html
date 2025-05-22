@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Multi-agent Collaboration</title>
+    <!-- Fallback for 404/403 errors with CloudFront -->
+    <script>
+      // Enhanced debug logging
+      (function checkAccessPattern() {
+        console.log('Initializing access pattern check...');
+        const isBrowser = typeof window !== 'undefined';
+        const isCloudFront = document.querySelector('meta[name="cf-ray"]') || 
+                            /\.cloudfront\.net$/.test(window.location.hostname);
+        const isS3Direct = window.location.hostname.includes('s3.') || 
+                          window.location.hostname.includes('s3-') || 
+                          window.location.hostname.endsWith('.s3.amazonaws.com');
+        
+        console.log('=== Website Access Debug Info ===');
+        console.log('Hostname:', window.location.hostname);
+        console.log('Path:', window.location.pathname);
+        console.log('Direct S3 Access:', isS3Direct ? 'Yes (ERROR)' : 'No');
+        console.log('CloudFront Access:', isCloudFront ? 'Yes' : 'No (ERROR)');
+        console.log('Headers:', JSON.stringify({
+            cfRay: !!document.querySelector('meta[name="cf-ray"]'),
+            server: document.querySelector('meta[name="server"]')?.content,
+            host: window.location.hostname
+        }));
+        console.log('================================');
+      // Detect and prevent direct S3 access
+      (function() {
+        var hostname = window.location.hostname;
+        if (hostname.includes('s3.') || hostname.includes('s3-') || hostname.endsWith('.s3.amazonaws.com')) {
+          console.error('Direct S3 access detected. Please use CloudFront domain.');
+          document.body.innerHTML = '<div style="text-align: center; padding: 20px;"><h1>Error: Invalid Access</h1><p>Please access this website through the CloudFront domain.</p><p>If you are the developer, check your deployment configuration.</p></div>';
+          throw new Error('Direct S3 access not allowed');
+        }
+      })();
+      
+      // Enhanced SPA routing handler
+      (function() {
+        // Handle URL parsing issues
+        if (window.location.pathname !== '/' && !window.location.pathname.includes('.')) {
+          // If the path isn't the root and doesn't refer to a file, we're likely on a React Router route
+          console.log('Detected SPA route:', window.location.pathname);
+          
+          // Ensure base tag is present and correct
+          var baseTag = document.querySelector('base');
+          if (!baseTag) {
+            baseTag = document.createElement('base');
+            baseTag.href = '/';
+            document.head.appendChild(baseTag);
+          }
+          
+          // Store the intended route for React Router
+          window.initialRoute = window.location.pathname + window.location.search + window.location.hash;
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DvMaaSVF.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CQT4A7Yy.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

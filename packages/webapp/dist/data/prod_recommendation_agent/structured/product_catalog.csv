@@ -1,0 +1,15 @@
+﻿product_id,product_name,category,price,description,rating,popularity
+p001,zensound wireless headphones,headphones,150,"1) noise-canceling 2) bluetooth enabled",4.5,high
+p002,vitafit smartwatch,watch,250,"1.) fitness tracking 2.) waterproof",4.6,high
+p004,sonicwave bluetooth speaker,speaker,100,"1.) portable 2.) long battery life",4.2,medium
+p006,soundsphere pro headphones,headphones,130,"1.) immersive sound 2.) over-ear 3.) noise-canceling",4.4,medium
+p007,trackmaster smartwatch,watch,230,"1.) heart rate monitor 2.) gps tracking",4.3,medium
+p008,thunderbolt speaker,speaker,90,"1.) compact 2.) waterproof 2.) bass boost",4.1,medium
+p003,promax laptop,computer,1200,"1.) high-performance 2.) 16gb ram 3.) 512gb ssd",4.4,high
+p009,ultrabook pro laptop,computer,1100,"1.) lightweight 2.) 8gb ram 3.) 256gb ssd",4.3,high
+p010,gigabook gaming laptop,computer,1500,"1.) high-end gpu 2.) 32gb ram 3.) 1tb ssd",4.7,high
+p011,flextab convertible laptop,computer,800,"1.) 2-in-1 touchscreen 2.) 16gb ram 3.) 512gb ssd",4.5,medium
+p005,nova 5g smartphone,phone,800,"1.) latest model 2.) 5g enabled",4.7,high
+p012,alpha one 5g,phones,750,"1.) ai-enhanced camera 2.) 128gb storage",4.6,high
+p013,eclipse x smartphone,phones,650,"1.) edge-to-edge display 2.) dual sim",4.4,medium
+p014,infinity ultra 5g,phone,850,"1.) 6.7-inch display 2.) long battery life",4.6,high

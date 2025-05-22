@@ -1,0 +1,67 @@
+﻿customer_id,product_id,purchase_date,quantity,purchase_amount,payment_method
+cust001,p001,10/15/23,1,450,credit card
+cust002,p002,8/20/23,3,75,paypal
+cust003,p003,9/5/23,2,300,debit card
+cust004,p003,7/22/23,5,125,credit card
+cust005,p004,11/1/23,1,200,paypal
+cust001,p002,6/15/23,4,320,credit card
+cust002,p001,9/1/23,2,100,debit card
+cust003,p004,10/1/23,1,250,paypal
+cust004,p005,8/10/23,3,450,gift card
+cust005,p002,7/25/23,5,175,debit card
+cust001,p003,11/5/23,2,330,credit card
+cust002,p004,7/15/23,1,80,paypal
+cust003,p001,9/15/23,2,190,credit card
+cust004,p002,10/20/23,3,75,gift card
+cust005,p005,8/15/23,4,500,debit card
+cust001,p004,9/20/23,3,225,paypal
+cust006,p006,10/10/23,2,260,credit card
+cust007,p007,11/11/23,1,230,debit card
+cust008,p008,9/12/23,3,270,gift card
+cust009,p009,10/25/23,1,1100,paypal
+cust010,p010,8/18/23,2,3000,credit card
+cust011,p011,9/29/23,1,800,debit card
+cust012,p012,11/2/23,1,750,gift card
+cust013,p013,7/21/23,2,1300,credit card
+cust014,p014,10/15/23,3,2550,paypal
+cust015,p005,9/10/23,1,800,debit card
+cust001,p010,10/3/23,1,1500,credit card
+cust002,p012,9/22/23,1,750,paypal
+cust003,p013,10/8/23,2,1300,gift card
+cust004,p006,11/6/23,1,130,debit card
+cust005,p008,9/20/23,2,180,credit card
+cust001,p001,11/10/23,2,300,credit card
+cust001,p002,10/22/23,1,250,paypal
+cust001,p003,11/1/23,1,1200,debit card
+cust001,p009,10/30/23,1,1100,gift card
+cust001,p013,11/5/23,1,650,credit card
+cust002,p010,10/15/23,1,1500,paypal
+cust002,p011,11/8/23,1,800,debit card
+cust003,p005,10/19/23,2,1600,credit card
+cust003,p012,11/7/23,1,750,gift card
+cust004,p014,11/2/23,1,850,paypal
+cust004,p007,10/12/23,2,460,debit card
+cust005,p008,11/6/23,1,90,gift card
+cust006,p005,11/9/23,1,800,credit card
+cust007,p003,10/20/23,2,2400,paypal
+cust001,p006,11/11/23,3,390,debit card
+cust007,p001,10/5/23,1,150,credit card
+cust007,p014,11/10/23,2,1700,paypal
+cust008,p003,9/18/23,1,1200,debit card
+cust008,p002,10/21/23,3,750,gift card
+cust009,p009,10/15/23,1,1100,credit card
+cust009,p008,11/1/23,2,180,debit card
+cust010,p006,9/20/23,1,130,paypal
+cust010,p005,11/2/23,1,800,credit card
+cust011,p007,10/12/23,3,690,debit card
+cust011,p010,11/5/23,1,1500,gift card
+cust012,p012,10/18/23,1,750,paypal
+cust012,p013,11/3/23,2,1300,credit card
+cust013,p004,9/25/23,1,100,debit card
+cust013,p005,10/30/23,2,1600,paypal
+cust014,p011,11/7/23,1,800,gift card
+cust014,p003,9/10/23,2,2400,credit card
+cust015,p002,10/3/23,4,1000,debit card
+cust015,p006,11/6/23,2,260,paypal
+cust016,p010,10/25/23,1,1500,credit card
+cust016,p014,11/9/23,1,850,debit card

@@ -56,7 +56,7 @@ To demonstrate the capabilities of our multi-agent system, we've developed an in
 The runtime chatbot is a React-based website that uses a WebSocket API and a Lambda function architecture. The Lambda function uses the Amazon Bedrock Converse API to reason and retrieve relevant documents from the knowledge base, and uses action groups for text-t2-sql querying against an Amazon Athena database. Then, the app provides the final answer to users inquiring about products, troubleshooting, or purchase recommendations.
 
 ## Architecture Design
-![Diagram](images/genai-mac-arch-diagram.png)
+![Diagram](images/MAO-RA1.png)
 
 
 ## Demo Scope
@@ -97,17 +97,25 @@ We recommend creating a [Budget](https://docs.aws.amazon.com/cost-management/lat
 
 | AWS Service                                           | Dimensions                                | Cost [USD]  |
 |-------------------------------------------------------|-------------------------------------------|-------------|
-| EC2 Instance (t3.small)                               | Running an EC2 instance 24/7 per month    | \$17.74      |
-| AWS Lambda                                            | 100k Invocations per month                | ~\$0.20      |
-| Amazon Bedrock Anthropic Claude 3 Haiku ***(Input)*** | 300K tokens per month (~200K words on average) | \$75         |
-| Amazon Bedrock Anthropic Claude 3 Haiku ***(Output)***| 400K tokens per month (~280K words on average) | \$500        |
-| Amazon S3 (Simple Storage Service)                    | Total size of company reports is 1.1 KB   | <\$1         |
-| Amazon Athena                                         | \$5.00 per TB of data scanned              | <\$1         |
-| Amazon Bedrock Knowledge Base                         | Assumed cost based on usage (e.g., 100 queries per month at \$0.01 per query) | \$1          |
-| Amazon DynamoDB                                       | Read/Write Capacity Units (assumed low usage) | <\$1         |
-| AWS Lambda (additional for Supervisor Agent)          | Additional Invocations (if any)            | ~\$0.20      |
-| AWS Cognito                                           | User pool management (assumed low usage)   | <\$1         |
-| AWS CloudFront                                        | Data transfer out (assumed low usage)      | <\$1         |
+| Amazon Cognito| Optimization Rate for Token Requests (0), Optimization Rate for App Clients (0), Number of monthly active users (MAU) (500), Advanced security features (Enabled)	| $25.00 |
+| AWS WAF	| Number of Web Access Control Lists (Web ACLs) utilized (1 per month), Number of Rules added per Web ACL (3 per month), Number of Rule Groups per Web ACL (2 per month), Number of Rules inside each Rule Group (2 per month)	| $14.00 |
+| Amazon CloudFront	| Data transfer out to internet (5 GB per month), Number of requests (HTTPS) (100000 per month), Data transfer out to origin (5 GB per month)	| $0.63 | 
+| Amazon API Gateway |	HTTP API requests units (millions), Average size of each request (34 KB), REST API request units (millions), Cache memory size (GB) (None), WebSocket message units (thousands), Average message size (32 KB), Requests ( per month), Requests (1 per month)	| $3.50 |
+| Amazon S3 | S3 Standard storage (10 GB per month), PUT, COPY, POST, LIST requests to S3 Standard (1000), GET, SELECT, and all other requests from S3 Standard (1000) |	$0.24 |
+| AWS Lambda |	Architecture (x86), Architecture (x86), Invoke Mode (Buffered), Amount of ephemeral storage allocated (512 MB), Number of requests (1 million per month)	| $0.00 |
+| Amazon DynamoDB |	Table class (Standard), Average item size (all attributes) (100 KB), Data storage size (10 GB)	| $3.15 |
+| Amazon Bedrock (Agents) |	Average of 1,000 tokens input and 500 tokens output per invocation, Using Claude 3 Sonnet model (3/1Minputtokens,15/1M output tokens)	| |
+| Supervisor Agent |	2,500 invocations/month	| $26.25 |
+| Order Management Agent	| 1,000 invocations/month |	$10.50 |
+| Product Recommendation Agent |	750 invocations/month	| $7.88 |
+| Trouble Shooting Agent |	500 invocations/month	| $5.25 |
+| Personalization Agent |	250 invocations/month	| $2.63 |
+| Agent Builder Service Fee	| 5 agents × 0.0025perrequest×5,000requests	| $62.50 |
+| Amazon Bedrock Knowledge Bases |	4 knowledge bases, 3 GB data each, 2,500 queries per month |	$507.48 | 
+| Amazon Bedrock Action Groups	| Included in Bedrock Agent pricing |	$0 |
+| Amazon Athena	| Amount of data scanned per query (1 GB), Total number of queries (100 per day)	| $14.85 |
+| AWS Glue |	Number of DPUs for Apache Spark job (12), Number of DPUs for Python Shell job (0.0625) |	$5.28 |
+|Total| | $689 |
 
 
 ### Model access

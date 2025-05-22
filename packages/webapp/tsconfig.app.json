@@ -24,8 +24,8 @@
     "noFallthroughCasesInSwitch": true,
     
     /* Type Resolution */
-    "types": [],
+    "types": ["vite/client"],
     "typeRoots": ["./node_modules/@types", "./node_modules/@cloudscape-design"]
   },
-  "include": ["src", "src/types"]
+  "include": ["src", "src/types", "src/**/*.d.ts"]
 }
