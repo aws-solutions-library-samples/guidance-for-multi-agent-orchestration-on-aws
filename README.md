@@ -58,6 +58,28 @@ The runtime chatbot is a React-based website that uses a WebSocket API and a Lam
 ## Architecture Design
 ![Diagram](images/genai-mac-arch-diagram.png)
 
+1. The user accesses the web application through AWS WAF and Amazon CloudFront, which delivers content from the Amazon S3 Website bucket, while Amazon Cognito handles authentication.
+
+2. After authentication, user requests are sent to Amazon API Gateway, which serves as the entry point for all interactions. API Gateway validates the request and routes it to the appropriate AWS Lambda function for processing, maintaining a secure and scalable communication channel. Amazon DynamoDB is used to store session data. 
+
+3. The AWS Lambda function processes the incoming request and communicates with the Amazon Bedrock Supervisor Agent (Main). 
+
+4. The Amazon Bedrock Supervisor Agent (Main) analyzes the user query to determine intent and routes it to the appropriate sub agent. This central orchestrator maintains context across the conversation and ensures requests are handled by the most suitable sub agent.
+
+4a. For order-related queries, the Order Management Agent retrieves data from the order management database in Amazon Athena, accessing orders and inventory tables through its Action Groups that execute SQL queries and format structured responses about order status, shipping details, and inventory availability.
+
+4b. When product recommendations are needed, this specialized agent accesses the product recommendation database in Athena while its Knowledge Base provides unstructured customer feedback data, with Action Groups performing recommendation algorithms and formatting product suggestions with relevant details.
+
+4c. For technical issues, the Troubleshooting Agent accesses its Knowledge Base containing FAQs and Troubleshooting Guide document collections, using vector search capabilities to match customer issues with relevant troubleshooting content and retrieve step-by-step solutions without requiring Action Groups.
+
+4d. For personalization needs, the Personalization Agent accesses the personalization database in Athena, querying the customers preferences table through Action Groups that execute tailored SQL queries, perform preference analysis, and format responses. Its Knowledge Base contains browser history data that reveals actual customer behavior patterns, complementing the structured data to create a comprehensive view of individual customer profiles and past interactions.
+
+5. Sub agents construct and execute SQL queries against Amazon Athena which uses the AWS Glue Data Catalog to understand the schema and location of data, then queries the data directly in Amazon S3 without requiring data movement or transformation.
+
+
+6. After gathering necessary information from databases and knowledge bases, the sub agents generates a comprehensive response, which is then sent back through the Supervisor Agent to the Lambda function, API Gateway, and finally to the user's web interface.
+
+
 
 ## Demo Scope
 
