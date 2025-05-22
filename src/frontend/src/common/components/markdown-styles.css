@@ -1,0 +1,207 @@
+/**
+ * Markdown formatting styles for chat responses
+ */
+
+.markdown-response,
+.formatted-response {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #2D3748;
+  font-size: 14px;
+}
+
+/* Headings */
+.markdown-response h1, 
+.markdown-response h2, 
+.markdown-response h3, 
+.markdown-response h4,
+.formatted-response h1,
+.formatted-response h2,
+.formatted-response h3,
+.formatted-response h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #1A202C;
+}
+
+.markdown-response h1,
+.formatted-response h1 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 0.3rem;
+}
+
+.markdown-response h2,
+.formatted-response h2 {
+  font-size: 1.3rem;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 0.3rem;
+}
+
+.markdown-response h3,
+.formatted-response h3 {
+  font-size: 1.2rem;
+}
+
+.markdown-response h4,
+.formatted-response h4 {
+  font-size: 1.1rem;
+}
+
+/* Paragraphs and spacing */
+.markdown-response p,
+.formatted-response p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+.markdown-response ul, 
+.markdown-response ol,
+.formatted-response ul,
+.formatted-response ol {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-response li,
+.formatted-response li {
+  margin-bottom: 0.375rem;
+}
+
+.markdown-response li p,
+.formatted-response li p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Bold text */
+.markdown-response strong, 
+.markdown-response b,
+.formatted-response strong,
+.formatted-response b {
+  font-weight: 600;
+  color: #1A202C;
+}
+
+/* Italics */
+.markdown-response em, 
+.markdown-response i,
+.formatted-response em,
+.formatted-response i {
+  font-style: italic;
+}
+
+/* Code blocks */
+.markdown-response pre {
+  background-color: #F7FAFC;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #E2E8F0;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Inline code */
+.markdown-response code {
+  background-color: #F7FAFC;
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.4rem;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875em;
+  color: #E53E3E;
+}
+
+/* Blockquotes */
+.markdown-response blockquote {
+  border-left: 4px solid #CBD5E0;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #4A5568;
+}
+
+/* Horizontal rule */
+.markdown-response hr {
+  height: 1px;
+  background-color: #E2E8F0;
+  border: none;
+  margin: 1.5rem 0;
+}
+
+/* Links */
+.markdown-response a {
+  color: #3182CE;
+  text-decoration: none;
+}
+
+.markdown-response a:hover {
+  text-decoration: underline;
+}
+
+/* Tables */
+.markdown-response table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid #E2E8F0;
+}
+
+.markdown-response th, 
+.markdown-response td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #E2E8F0;
+}
+
+.markdown-response th {
+  background-color: #F7FAFC;
+  font-weight: 600;
+  text-align: left;
+}
+
+.markdown-response tr:nth-child(even) {
+  background-color: #F7FAFC;
+}
+
+/* Handle both markdown ** and non-markdown scenarios */
+.markdown-response p strong,
+.markdown-response **,
+.markdown-response b,
+.formatted-response p strong,
+.formatted-response **,
+.formatted-response b {
+  font-weight: 600;
+  color: #1A202C;
+}
+
+/* Special formatting for In Stock and Personalized Recommendations sections */
+.markdown-response p:has(strong:contains("In Stock")),
+.markdown-response p:contains("**In Stock:**"),
+.formatted-response h3.section-heading.in-stock,
+.formatted-response p:contains("**In Stock:**") {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #2C5282;
+}
+
+.markdown-response p:has(strong:contains("Personalized Recommendations")),
+.markdown-response p:contains("**Personalized Recommendations:**"),
+.formatted-response h3.section-heading.recommendations,
+.formatted-response p:contains("**Personalized Recommendations:**") {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #2D3748;
+}
+
+/* Make text a bit smaller in chat bubbles */
+.cloudscape-chat-bubble-content .markdown-response,
+.cloudscape-chat-bubble-content .formatted-response {
+  font-size: 14px;
+}

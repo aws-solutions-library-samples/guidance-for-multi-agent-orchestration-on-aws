@@ -1,0 +1,15 @@
+{
+    "projectId": "mac-demo",
+    "gitlabGroup": "genai-labs/demo-assets",
+    "gitlabProject": "multiagent-collaboration",
+    "codeArtifact": false,
+    "codePipeline": false,
+    "midway": false,
+    "accounts": {
+        "dev": {
+            "number": "959664613099",
+            "region": "us-west-2",
+            "midwaySecretId": "LGWdqG"
+        }
+    }
+}

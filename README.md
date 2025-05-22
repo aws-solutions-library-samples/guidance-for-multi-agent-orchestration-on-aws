@@ -129,18 +129,6 @@ Navigate to the Amazon Bedrock console, and enable the following models:
 
 ## Pre-Requisites
 
-### Volta
-
-We use `volta` to manage `nodejs` installation & version management. Get `volta` from [here](https://docs.volta.sh/guide/understanding).
-
-```bash
-volta install node@22.6.0
-
-# check node version 
-node --version 
-v22.6.0
-```
-
 
 ### Run Docker
 
@@ -180,10 +168,10 @@ cd /project-root/
 gh repo clone awslabs/genai-labs-mac-demo-customer-support
 ```
 
-We are all set to install dependencies by using the following command. This will install `npm` dependencies from our internal AWS CodeArtifact repository and will take at-least 2-5 mins to complete for first time. Great time for a ☕
+We are all set to install dependencies by using the following command. This will install `npm` dependencies required to run the app. Then, we will boostratp the account.
 
 ```bash
-npm run install:all
+npm i
 ```
 
 ### Bootstrapping account
@@ -194,48 +182,23 @@ cdk bootstrap aws://{ACCOUNT_ID}/{REGION}
 
 ### Setup website
 
-Next up we will setup the website to run locally to make changes, then deploy the app to Cloudfront. This requires to generate the `.env` file locally which has all backend infra ARNs and several key resource identifiers. This can be easily done via a script
+Next, we will use the starter kit to deploy our app. This includes ready-to-deploy, compliant and secure CDK and React app components with Cognito integration. It also includes customizable CLI tooling for easier demo configuration and management. While we offer this set of components and tools, you retain the freedom to customize any and all aspects of the starter kit to fit your use case (even if it has nothing to do with GenAI).
 
-Make sure to navigate to the packages/infra/config/***AppConfig.ts*** file and update the **projectName**, and **currentAccount**.
+Make sure to navigate to the config/***project-config.json*** file and update the **number** property to your current account, then save it.
 
-```bash
-# from project root
-cd /project-root/ 
 
-# manually deploy infra via cdk 
-npm run -w infra deploy-infra
-
-# build the web-app
-npm run -w infra build-webapp
-```
-
-If you get the following error on deployment:
-`Unable to find image 'public.ecr.aws/sam/build-python3.12:latest' locally`
-
-Run these commands:
+Next, run this command:
 
 ```bash
-docker logout public.ecr.aws
-
-npm run -w infra deploy-infra
-
-npm run -w infra build-webapp
+Deploy CDK Stack(s)
 ```
+You will see a screen with options. Select ***1. Synthesize CDK Stacks 🗂️***.
+After it succefully deploys, deploy the frontend by selecting ***4. Deploy Frontend 🖥️ ***.
+
+![starkit-screen](images/startkit-mainscreen.png)
 
 
-- Before we run the app, we need to manually set the Amazon Athena output bucket (This will be automated on the next revision). In the AWS console, search for the Amazon Athena service, then navigate to the Athena management console. Validate that the ***Query your data with Trino SQL*** radio button is selected, then press ***Launch query editor***.
-![athena1](images/athena1.png)
-
-
-- Next, set the ***query result location*** with Amazon S3. Select the ***Settings*** tab, then the ***Manage*** button in the ***Query result location and encryption*** section.
-![athena2](images/athena2.png)
-
-
-- Add the S3 prefix below for the query results location, then select the ***Save*** button.
-```bash
-s3://genai-athena-output-bucket-{account_number}
-```
-![athena3](images/athena3.png)
+- Now, lets navigate over to the Amazon Cognito management console
 
 
 - The last thing we need to do before we can access the application is to add in a user in Amazon Cognito. Navigate to the Amazon Cognito management console. Once there, select **User pools** on the left.
@@ -254,27 +217,8 @@ s3://genai-athena-output-bucket-{account_number}
 ![cognito4](images/cognito4.png)
 
 
-### Run webapp locally
 
-The local site is configured to run on port `3000`. So, ensure there are no other apps running on that port.
-
-Run the following commands:
-
-```bash
-cd /project-root/ 
-#locally run webapp
-npm run -w webapp dev
-```
-
-Now, visit <http://localhost:3000> on a browser of choice (Chrome/Firefox are recommended)
-
----
-
-### Deploy webapp to Amazon Cloudfront
-```bash
-### Deploy webapp to Amazon Cloudfront
-npm run -w infra deploy-website
-```
+Navigate to the Amazon Cloudfront endpoint created from the deployment. Enter in your credential, then test the application.
 
 ***(If you change any of the models on the agents, make sure to update the Alias to a new version afterwards. Do not create any new aliases for the agents.)***
 

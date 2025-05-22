@@ -1,0 +1,18 @@
+schemaVersion: 2.0.0
+components:
+    - name: dev
+      container:
+          image: public.ecr.aws/aws-mde/universal-image:latest
+commands:
+    - id: install
+      exec:
+          component: dev
+          commandLine: "npm run setup"
+    - id: test
+      exec:
+          component: dev
+          commandLine: "npm run lint"
+    - id: build
+      exec:
+          component: dev
+          commandLine: "npm run -w backend cdk synth && npm run -w frontend build"

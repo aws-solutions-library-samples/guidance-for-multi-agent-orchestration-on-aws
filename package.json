@@ -1,43 +1,70 @@
 {
-  "name": "multiagent-collaboration",
-  "version": "1.0.0",
-  "description": "MAC for customer support",
-  "main": "index.js",
-  "workspaces": [
-    "packages/*"
-  ],
-  "private": true,
-  "scripts": {
-    "test": "echo 'MAC Demo Customer Support'",
-    "install:deps": "npm install && npm i aws-cdk-lib",
-    "install:infra": "cd packages/infra && npm install",
-    "install:webapp": "cd packages/webapp && npm install",
-    "install:all": "npm run install:deps && npm run install:infra && npm run install:webapp",
-    "clean": "rm -rf node_modules && rm -rf packages/*/node_modules && rm -rf packages/*/dist",
-    "deploy": "npm run -w infra simple-deploy",
-    "deploy:webapp": "npm run -w infra deploy-website",
-    "deploy:all": "npm run -w infra full-deploy",
-    "deploy-infra": "npm run -w infra deploy",
-    "delete:stack": "bash packages/infra/scripts/rollback-mac-demo.sh"
-  },
-  "keywords": [],
-  "author": "azrahuls@, tamjay@",
-  "license": "Apache-2.0",
-  "volta": {
-    "node": "22.6.0"
-  },
-  "dependencies": {
-    "@aws-amplify/data-schema-types": "^1.2.0",
-    "@aws-crypto/util": "^5.2.0",
-    "@cdklabs/generative-ai-cdk-constructs": "^0.1.293",
-    "@cloudscape-design/components": "^3.0.899",
-    "aws-cdk-lib": "2.194.0",
-    "cdk-nag": "^2.35.30",
-    "get-nonce": "^1.0.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.13.5",
-    "aws-cdk": "^2.180.0"
-  }
+    "name": "multiagent-collaboration",
+    "description": "MAC for customer support",
+    "version": "2.0.0-beta",
+    "author": "GenAI Labs Team",
+    "license": "Apache License Version 2.0",
+    "private": true,
+    "workspaces": [
+        "src/*"
+    ],
+    "scripts": {
+        "setup": "pip install -r requirements-dev.txt && npm config set registry=https://registry.npmjs.com/ && npm install && cd ./src/backend && npm install && cd ../frontend && npm install",
+        "prepare": "husky",
+        "configure": "npx tsx tools/cli/configure.ts",
+        "format": "prettier --write . && ruff format .",
+        "lint": "eslint . && ruff check .",
+        "develop": "npx tsx tools/cli/develop.ts",
+        "stage": "git add -A",
+        "commit": "npx cz"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write",
+            "eslint --fix-dry-run"
+        ],
+        "*.{json,yaml,yml,md,html,css}": [
+            "prettier --write"
+        ],
+        "*.py": [
+            "ruff format",
+            "ruff check"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "engines": {
+        "node": "22.8.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.5.0",
+        "@commitlint/config-conventional": "^19.5.0",
+        "@commitlint/prompt-cli": "^19.5.0",
+        "@commitlint/types": "^19.5.0",
+        "@types/node": "22.7.9",
+        "@typescript-eslint/eslint-plugin": "^8.20.0",
+        "@typescript-eslint/parser": "^8.20.0",
+        "commitizen": "^4.3.1",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^9.19.0",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-plugin-prettier": "^5.2.3",
+        "globals": "^15.14.0",
+        "husky": "^9.1.6",
+        "lint-staged": "^15.4.3",
+        "prettier": "^3.4.2",
+        "tsx": "^4.19.3",
+        "typescript": "~5.6.3",
+        "typescript-eslint": "^8.23.0"
+    },
+    "dependencies": {
+        "@aws-sdk/client-cloudformation": "^3.772.0",
+        "chalk": "4.1.0",
+        "enquirer": "^2.4.1",
+        "yaml": "^2.7.0",
+        "zod": "^3.24.1"
+    }
 }

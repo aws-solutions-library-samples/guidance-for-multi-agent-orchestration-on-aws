@@ -1,0 +1,44 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "author": "GenAI Labs Team",
+    "license": "Apache License Version 2.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "generate": "npx @aws-amplify/cli codegen",
+        "dev": "vite --host --port 3000",
+        "build": "vite build",
+        "build:typecheck": "tsc -b && vite build",
+        "preview": "vite preview --host --port 3000"
+    },
+    "dependencies": {
+        "@aws-amplify/ui-react": "^6.9.1",
+        "@cloudscape-design/chat-components": "^1.0.22",
+        "@cloudscape-design/code-view": "^3.0.40",
+        "@cloudscape-design/components": "^3.0.895",
+        "@cloudscape-design/design-tokens": "^3.0.51",
+        "@cloudscape-design/global-styles": "^1.0.36",
+        "aws-amplify": "^6.12.3",
+        "aws-rum-web": "^1.19.0",
+        "motion": "^12.4.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-icons": "^5.2.0",
+        "react-router-dom": "^7.1.5",
+        "reactflow": "^11.10.4"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.19.0",
+        "@types/react": "^18.3.5",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
+        "eslint": "^9.19.0",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-react-refresh": "^0.4.18",
+        "globals": "^15.14.0",
+        "typescript": "^5.5.4",
+        "typescript-eslint": "^8.22.0",
+        "vite": "^6.2.4"
+    }
+}

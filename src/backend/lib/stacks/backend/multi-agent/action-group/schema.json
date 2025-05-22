@@ -1,0 +1,58 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "AthenaQuery API",
+        "description": "API for querying data from an Athena database",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/athenaQuery": {
+            "post": {
+                "description": "Execute a query on an Athena database",
+                "operationId": "executeAthenaQuery",
+                "requestBody": {
+                    "description": "Athena query details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "procedureId": {
+                                        "type": "string",
+                                        "description": "Unique identifier for the procedure",
+                                        "nullable": true
+                                    },
+                                    "query": {
+                                        "type": "string",
+                                        "description": "SQL Query"
+                                    }
+                                },
+                                "required": ["query"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response with query results",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "resultSet": {
+                                            "type": "array",
+                                            "items": { "type": "object" },
+                                            "description": "Results returned by the query"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

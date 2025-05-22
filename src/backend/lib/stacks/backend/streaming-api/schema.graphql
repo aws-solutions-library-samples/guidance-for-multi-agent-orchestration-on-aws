@@ -1,0 +1,19 @@
+type Chat @model @auth(rules: [{ allow: owner, ownerField: "userId", identityClaim: "sub" }]) {
+    userId: ID
+    sessionId: String! @index(name: "bySessionId")
+    human: String
+    assistant: String
+    trace: AWSJSON
+    expiration: AWSTimestamp
+}
+
+type Session @model @auth(rules: [{ allow: owner, ownerField: "userId", identityClaim: "sub" }]) {
+    userId: ID
+    chats: [Chat] @hasMany(indexName: "bySessionId")
+    expiration: AWSTimestamp
+}
+
+type Mutation {
+    sendChat(sessionId: String!, human: String!, sessionAttributes: AWSJSON): String
+        @aws_cognito_user_pools
+}
