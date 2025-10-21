@@ -41,6 +41,6 @@
         "papaparse": "5.5.3",
         "typescript": "^5.5.4",
         "typescript-eslint": "^8.22.0",
-        "vite": "^6.2.7"
+        "vite": "^6.4.1"
     }
 }
